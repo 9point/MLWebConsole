@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import WorkerDirective from '../models/WorkerDirective';
 import WorkerLog from '../components/WorkerLog';
 
@@ -32,24 +32,27 @@ export default function WorkflowRunPage(props: Props) {
 }
 
 function useWorkerLogs(workflowRunID: string) {
-  const [logs, setLogs] = useState([]);
+  const [logs, setLogs] = useState([] as any[]);
 
-  const query = useCreateQuery(WorkerDirective, (_: any) =>
-    _.where('isDeleted', '==', false)
+  const query = useCreateQuery(WorkerDirective, (_: any) => {
+    return _.where('isDeleted', '==', false)
       .where('payloadKey', '==', 'v1.log')
       .where('payload.workflowRunID', '==', workflowRunID)
-      .orderBy('payload.order'),
-  );
+      .orderBy('payload.order');
+  });
 
   useListenQuery(query, (changeSet) => {
-    if (!changeSet) {
+    if (!changeSet || !changeSet.added || changeSet.added.length === 0) {
       return;
     }
 
     const { added } = changeSet;
-    console.log('added:', added && added.length);
-    const newLogs = added ? logs.concat(added) : logs;
-    setLogs(newLogs);
+
+    setLogs((prevLogs) => {
+      const allLogs = prevLogs.concat(added);
+      allLogs.sort((a, b) => a.payload.order - b.payload.order);
+      return allLogs;
+    });
   });
 
   return logs;

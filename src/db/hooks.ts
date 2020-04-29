@@ -7,7 +7,6 @@ export function useCreateQuery(module: any, cb: Function) {
 
 export function useListenQuery(query: any, cb: (changeSet: any) => void) {
   useEffect(() => {
-    console.log('calling effect');
     const subscription = listenQuery(query, (changeSet: any) => {
       cb(changeSet);
     });
