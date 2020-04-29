@@ -1,8 +1,8 @@
-const createModel = require('./createModel');
-const createRef = require('./createRef');
+import createModel from './createModel';
+import createRef from './createRef';
 
-const COLLECTION_NAME = 'Workflows';
-const MODEL_TYPE = 'Workflow';
+export const COLLECTION_NAME = 'Workflows';
+export const MODEL_TYPE = 'Workflow';
 
 /**
  *
@@ -10,14 +10,14 @@ const MODEL_TYPE = 'Workflow';
  *   name: Name of the workflow.
  *   projectID: ID of the parent project.
  */
-function create(fields) {
+export function create(fields) {
   return createModel(MODEL_TYPE, {
     name: fields.name,
     projectRef: createRef('Project', fields.projectID),
   });
 }
 
-module.exports = {
+export default {
   COLLECTION_NAME,
   MODEL_TYPE,
   create,

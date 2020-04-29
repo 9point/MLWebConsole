@@ -1,16 +1,16 @@
-const createModel = require('./createModel');
-const createRef = require('./createRef');
-const setModel = require('./setModel');
+import createModel from './createModel';
+import createRef from './createRef';
+import setModel from './setModel';
 
-const COLLECTION_NAME = 'WorkflowRunStates';
-const MODEL_TYPE = 'WorkflowRunState';
+export const COLLECTION_NAME = 'WorkflowRunStates';
+export const MODEL_TYPE = 'WorkflowRunState';
 
 /**
  *
  * @param {Object} fields
  *   workflowRunID: ID of the workflow run this state is associated with.
  */
-function create(fields) {
+export function create(fields) {
   return createModel(MODEL_TYPE, {
     activeTaskRefs: [],
     completedTaskRefs: [],
@@ -25,7 +25,7 @@ function create(fields) {
  *  activeTaskIDs?: Set of refs for active tasks.
  *  completedTaskIDs?: Set of refs for completed tasks.
  */
-function set(model, fields) {
+export function set(model, fields) {
   const finalFields = {};
 
   if (fields.activeTaskIDs) {
@@ -43,7 +43,7 @@ function set(model, fields) {
   return setModel(model, finalFields);
 }
 
-function addActiveTaskIDs(model, ids) {
+export function addActiveTaskIDs(model, ids) {
   const completedTaskIDs = model.completedTaskRefs
     .filter((ref) => !ids.includes(ref.refID))
     .map((ref) => ref.refID);
@@ -59,7 +59,7 @@ function addActiveTaskIDs(model, ids) {
   return set(model, { activeTaskIDs, completedTaskIDs });
 }
 
-function addCompletedTaskIDs(model, ids) {
+export function addCompletedTaskIDs(model, ids) {
   const activeTaskIDs = model.activeTaskRefs
     .filter((ref) => !ids.includes(ref.refID))
     .map((ref) => ref.refID);
@@ -75,7 +75,7 @@ function addCompletedTaskIDs(model, ids) {
   return set(model, { activeTaskIDs, completedTaskIDs });
 }
 
-module.exports = {
+export default {
   COLLECTION_NAME,
   MODEL_TYPE,
   addActiveTaskIDs,

@@ -1,7 +1,7 @@
 const createModel = require('./createModel');
 
-const COLLECTION_NAME = 'Projects';
-const MODEL_TYPE = 'Project';
+export const COLLECTION_NAME = 'Projects';
+export const MODEL_TYPE = 'Project';
 
 /**
  *
@@ -9,11 +9,11 @@ const MODEL_TYPE = 'Project';
  *   imageName - name of the docker image.
  *   name - Name of the project.
  */
-function create(fields) {
+export function create(fields) {
   return createModel(MODEL_TYPE, fields);
 }
 
-module.exports = {
+export default {
   COLLECTION_NAME,
   MODEL_TYPE,
   create,

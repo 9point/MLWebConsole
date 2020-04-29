@@ -1,6 +1,6 @@
 {
-  "name": "ml-project-web-interface",
-  "version": "0.1.0",
+  "name": "mlwebinterface",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -21,8 +21,11 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "deploy-docker": "DOCKER_ORG=9point bash ./scripts/deploy_docker.sh",
     "build": "react-scripts build",
+    "build-docker": "DOCKER_ORG=9point DOCKERFILE=Dockerfile bash ./scripts/build_docker.sh",
+    "start": "react-scripts start",
+    "tag-version": "bash ./scripts/tag_version.sh",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

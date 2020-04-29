@@ -2,7 +2,7 @@ const FirebaseAdmin = require('firebase');
 
 const assert = require('assert');
 
-module.exports = function setModel(model, fields) {
+export default function setModel(model, fields) {
   assert(
     Object.keys(fields).length > 0,
     'Cannot set model with no new fields.',

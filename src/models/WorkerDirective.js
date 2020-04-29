@@ -1,10 +1,10 @@
-const createModel = require('./createModel');
-const createRef = require('./createRef');
+import createModel from './createModel';
+import createRef from './createRef';
 
-const { v4: uuidv4 } = require('uuid');
+import { v4 as uuidv4 } from 'uuid';
 
-const COLLECTION_NAME = 'WorkerDirectives';
-const MODEL_TYPE = 'WorkerDirective';
+export const COLLECTION_NAME = 'WorkerDirectives';
+export const MODEL_TYPE = 'WorkerDirective';
 
 /**
  *
@@ -14,7 +14,7 @@ const MODEL_TYPE = 'WorkerDirective';
  *   payloadKey: The key associated with the payload.
  *   workerID: ID of the worker this directive is associated with.
  */
-function create(fields) {
+export function create(fields) {
   return createModel(MODEL_TYPE, {
     directiveType: fields.directiveType,
     payload: fields.payload,
@@ -62,7 +62,7 @@ create.task = {
   },
 };
 
-module.exports = {
+export default {
   COLLECTION_NAME,
   MODEL_TYPE,
   create,

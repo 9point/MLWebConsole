@@ -1,9 +1,9 @@
-const createModel = require('./createModel');
-const createRef = require('./createRef');
-const setModel = require('./setModel');
+import createModel from './createModel';
+import createRef from './createRef';
+import setModel from './setModel';
 
-const COLLECTION_NAME = 'Workers';
-const MODEL_TYPE = 'Worker';
+export const COLLECTION_NAME = 'Workers';
+export const MODEL_TYPE = 'Worker';
 
 /**
  *
@@ -11,7 +11,7 @@ const MODEL_TYPE = 'Worker';
  *   projectID: ID of the parent project.
  *   status: Status of the worker. Default is INITIALIZING.
  */
-function create(fields) {
+export function create(fields) {
   return createModel(MODEL_TYPE, {
     projectRef: createRef('Project', fields.projectID),
     status: fields.status || 'INITIALIZING',
@@ -23,11 +23,11 @@ function create(fields) {
  * @param {Object} fields
  *   status: The status of the worker.
  */
-function set(model, fields) {
+export function set(model, fields) {
   return setModel(model, fields);
 }
 
-module.exports = {
+export default {
   COLLECTION_NAME,
   MODEL_TYPE,
   create,
