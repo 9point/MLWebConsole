@@ -1,4 +1,4 @@
-const FirebaseAdmin = require('firebase-admin');
+const FirebaseAdmin = require('firebase');
 
 const assert = require('assert');
 

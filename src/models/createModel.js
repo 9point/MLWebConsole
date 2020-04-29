@@ -1,4 +1,4 @@
-const FirebaseAdmin = require('firebase-admin');
+const FirebaseAdmin = require('firebase');
 
 const { v4: uuidv4 } = require('uuid');
 

@@ -1,0 +1,36 @@
+.Text-Root {
+}
+
+.Text-DisplayStyleBlock {
+  display: block;
+}
+
+.Text-DisplayStyleInline {
+  display: inline;
+}
+
+.Text-FontStylePrimary {
+  font-family: 'Helvetica Neueu', sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.Text-FontStyleMono {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+/*
+ * Forcing the line height causes the height of the text to match the line
+ * height. This is meant for cases where you still want empty text to take
+ * line height.
+ */
+
+.Text-ForceLineHeight.Text-FontStylePrimary {
+  height: 16px;
+}
+
+.Text-ForceLineHeight.Text-FontStyleMono {
+  height: 18px;
+}

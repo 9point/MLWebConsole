@@ -1,32 +1,28 @@
-import React from 'react';
-import RouteNotFound from './RouteNotFound';
-import WorkflowRun from './WorkflowRun';
+import React, { useEffect } from 'react';
+import RouteNotFoundPage from './page/RouteNotFoundPage';
+import WorkflowRunPage from './page/WorkflowRunPage';
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useParams,
-  useRouteMatch,
-} from 'react-router-dom';
+import configureDB from './db/configure';
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 
-function App() {
+configureDB();
+
+export default function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route path={`/workflowRun/:workflowRunID`}>
-            <WorkflowRun />
+            <WorkflowRunPage />
           </Route>
           <Route>
-            <RouteNotFound />
+            <RouteNotFoundPage />
           </Route>
         </Switch>
       </Router>
     </div>
   );
 }
-
-export default App;
