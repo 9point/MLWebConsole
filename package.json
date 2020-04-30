@@ -24,10 +24,11 @@
     "deploy-docker": "DOCKER_ORG=9point bash ./scripts/deploy_docker.sh",
     "build": "react-scripts build",
     "build-docker": "DOCKER_ORG=9point DOCKERFILE=Dockerfile bash ./scripts/build_docker.sh",
+    "eject": "react-scripts eject",
+    "install-credentials": "bash ./scripts/install_credentials.sh",
     "start": "react-scripts start",
     "tag-version": "bash ./scripts/tag_version.sh",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"

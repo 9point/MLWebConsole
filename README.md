@@ -1,5 +1,49 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup Environment
+
+The following environment variables must be setup:
+
+- `AWS_ACCESS_KEY_ID`: The access key for digital ocean spaces storage.
+
+- `AWS_SECRET_ACCESS_KEY`: The secret for digital ocean spaces.
+
+Run the following:
+
+```
+npm install
+```
+
+## Deploying App
+
+The following environment variables must be defined:
+
+- `CREDENTIALS_SPACES_BUCKET`: The bucket name for the digital ocean spaces
+  storage containing the credentials.
+
+- `CREDENTIALS_SPACES_REGION`: The region name for the digital ocean spaces
+  storage containing the credentials.
+
+- `DOCKER_REGISTRY_USERNAME`: The username for the dockerhub registry.
+
+- `DOCKER_REGISTRY_PASSWORD`: The password for the docker registry.
+
+Do the following:
+
+- Increment the version number in package.json
+- Commit any changes
+- Run the following command
+
+```
+npm run tag-version
+npm run build-docker
+npm run deploy-docker
+```
+
+This will deploy a new docker image to docker hub. To deploy the final
+kubernetes service, you will need access to the Deployment Repo. Follow
+instructions in that repo for deploying the newest version of this app.
+
 ## Available Scripts
 
 In the project directory, you can run:
