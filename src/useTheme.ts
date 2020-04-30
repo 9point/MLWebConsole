@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react';
 
 export type Theme = 'Light' | 'Dark';
 
+const THEME_LOCAL_STORAGE_KEY = 'v1.theme';
+
 const callbacks: Array<(theme: Theme) => void> = [];
 
-let currentTheme: Theme = 'Light';
+let currentTheme: Theme =
+  localStorage.getItem(THEME_LOCAL_STORAGE_KEY) === 'Dark' ? 'Dark' : 'Light';
 
 export default function useTheme(): [Theme, (theme: Theme) => void] {
   const [theme, setThemeLocal] = useState(currentTheme);
@@ -44,6 +47,8 @@ export function toggleTheme(theme: Theme): Theme {
 
 function setThemeGlobal(theme: Theme) {
   currentTheme = theme;
+  localStorage.setItem(THEME_LOCAL_STORAGE_KEY, theme);
+
   for (const cb of callbacks) {
     cb(theme);
   }
