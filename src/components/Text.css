@@ -1,4 +1,10 @@
 .Text-Root {
+  color: black;
+  transition: color 0.2s;
+}
+
+.Theme-Dark .Text-Root {
+  color: white;
 }
 
 .Text-DisplayStyleBlock {
@@ -10,14 +16,16 @@
 }
 
 .Text-FontStylePrimary {
-  font-family: 'Helvetica Neueu', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
+  font-weight: 500;
   line-height: 16px;
 }
 
 .Text-FontStyleMono {
   font-family: 'Source Code Pro', monospace;
   font-size: 14px;
+  font-weight: 500;
   line-height: 18px;
 }
 

@@ -1,0 +1,21 @@
+.Icon-Root {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: invert(0);
+  height: 20px;
+  transition: filter 0.2s;
+  width: 20px;
+}
+
+.Theme-Dark .Icon-Root {
+  filter: invert(1);
+}
+
+.Icon-IconNameDarkMode {
+  background-image: url(../assets/icons/ic-fill-darkMode-20@2x.png);
+}
+
+.Icon-IconNameSidebarLeft {
+  background-image: url(../assets/icons/ic-stroke-sidebar-left-20@2x.png);
+}
