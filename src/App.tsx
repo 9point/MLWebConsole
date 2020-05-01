@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import RouteNotFoundPage from './page/RouteNotFoundPage';
-import WorkflowRunPage from './page/WorkflowRunPage';
+import React from 'react';
+import RouteNotFoundPage from './pages/RouteNotFoundPage';
+import WorkflowRunPage from './workflow-run/WorkflowRunPage';
 
 import classnames from 'classnames';
 import configureDB from './db/configure';

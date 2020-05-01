@@ -1,0 +1,8 @@
+.Page {
+  display: flex;
+  flex-direction: column;
+}
+
+.Page-ToolbarSpacer {
+  margin-top: 40px; /* height of toolbar */
+}

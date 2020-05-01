@@ -4,27 +4,35 @@ import classnames from 'classnames';
 
 import './Text.css';
 
+export type DisplayStyle = 'Inline' | 'Block';
+
+export type FontStyle =
+  | 'MonoLarge'
+  | 'MonoPrimary'
+  | 'MonoSemibold'
+  | 'MonoXLarge'
+  | 'MonoXXLarge'
+  | 'Primary';
+
 export interface Props {
   children?: React.ReactNode;
-  displayStyle?: 'inline' | 'block';
-  fontStyle?: 'mono' | 'primary';
+  displayStyle?: DisplayStyle;
+  fontStyle?: FontStyle;
   forceLineHeight?: boolean;
 }
 
 export default function Text(props: Props) {
-  const displayStyle = props.displayStyle || 'inline';
-  const fontStyle = props.fontStyle || 'sans-serif';
+  const displayStyle = props.displayStyle || 'Inline';
+  const fontStyle = props.fontStyle || 'Primary';
   const forceLineHeight = props.forceLineHeight || false;
 
   return (
     <span
       className={classnames({
-        'Text-DisplayStyleBlock': displayStyle === 'block',
-        'Text-DisplayStyleInline': displayStyle === 'inline',
-        'Text-FontStyleMono': fontStyle === 'mono',
-        'Text-FontStylePrimary': fontStyle === 'primary',
         'Text-ForceLineHeight': forceLineHeight,
         'Text-Root': true,
+        [`Text-DisplayStyle${displayStyle}`]: true,
+        [`Text-FontStyle${fontStyle}`]: true,
       })}
     >
       {props.children}

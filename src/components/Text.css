@@ -22,11 +22,39 @@
   line-height: 16px;
 }
 
-.Text-FontStyleMono {
+.Text-FontStyleMonoLarge {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.Text-FontStyleMonoPrimary {
   font-family: 'Source Code Pro', monospace;
   font-size: 14px;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 20px;
+}
+
+.Text-FontStyleMonoSemibold {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.Text-FontStyleMonoXLarge {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 24px;
+}
+
+.Text-FontStyleMonoXXLarge {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 28px;
 }
 
 /*
@@ -36,9 +64,25 @@
  */
 
 .Text-ForceLineHeight.Text-FontStylePrimary {
-  height: 16px;
+  min-height: 16px;
 }
 
-.Text-ForceLineHeight.Text-FontStyleMono {
-  height: 18px;
+.Text-ForceLineHeight.Text-FontStyleMonoPrimary {
+  min-height: 20px;
+}
+
+.Text-ForceLineHeight.Text-FontStyleMonoSemibold {
+  min-height: 20px;
+}
+
+.Text-ForceLineHeight.Text-FontStyleMonoLarge {
+  min-height: 24px;
+}
+
+.Text-ForceLineHeight.Text-FontStyleMonoXLarge {
+  min-height: 28px;
+}
+
+.Text-ForceLineHeight.Text-FontStyleMonoXXLarge {
+  min-height: 30px;
 }

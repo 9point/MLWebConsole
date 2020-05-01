@@ -20,6 +20,7 @@ export function PageWithToolbar(props: Props) {
   return (
     <div className={classnames('Page', 'Page-WithToolbar', props.className)}>
       <Toolbar />
+      <div className="Page-ToolbarSpacer" />
       {props.children}
     </div>
   );

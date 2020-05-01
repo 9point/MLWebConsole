@@ -1,8 +1,0 @@
-.Page {
-  display: flex;
-  flex-direction: column;
-}
-
-.Page-WithToolbar {
-  margin-top: 48px; /* height of toolbar + 8px padding */
-}
