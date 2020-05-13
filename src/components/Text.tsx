@@ -7,6 +7,7 @@ import './Text.css';
 export type DisplayStyle = 'Inline' | 'Block';
 
 export type FontStyle =
+  | 'Large'
   | 'MonoLarge'
   | 'MonoPrimary'
   | 'MonoSemibold'
@@ -16,6 +17,7 @@ export type FontStyle =
 
 export interface Props {
   children?: React.ReactNode;
+  className?: string;
   displayStyle?: DisplayStyle;
   fontStyle?: FontStyle;
   forceLineHeight?: boolean;
@@ -28,7 +30,7 @@ export default function Text(props: Props) {
 
   return (
     <span
-      className={classnames({
+      className={classnames(props.className, {
         'Text-ForceLineHeight': forceLineHeight,
         'Text-Root': true,
         [`Text-DisplayStyle${displayStyle}`]: true,

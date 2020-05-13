@@ -15,13 +15,18 @@ export default function WorkflowRunPage(props: Props) {
   const { workflowRunID } = useParams();
   const logs = useLogData(workflowRunID);
 
-  return (
-    <PageWithToolbar
-      className={classnames('margin-all-16px', 'Page', 'WorkflowRunPage-Root')}
-    >
+  const canvas = (
+    <>
       {logs.map((log) => (
         <WorkerLog data={log} key={log.reactKey} />
       ))}
-    </PageWithToolbar>
+    </>
+  );
+
+  return (
+    <PageWithToolbar
+      canvas={canvas}
+      className={classnames('margin-all-16px', 'Page', 'WorkflowRunPage-Root')}
+    />
   );
 }

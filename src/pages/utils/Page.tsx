@@ -6,22 +6,22 @@ import classnames from 'classnames';
 import './Page.css';
 
 export interface Props {
-  children?: React.ReactNode;
+  canvas: React.ReactElement;
   className?: string;
-}
-
-export default function Page(props: Props) {
-  return (
-    <div className={classnames('Page', props.className)}>{props.children}</div>
-  );
+  leftPane?: React.ReactElement;
+  showLeftPane?: boolean;
 }
 
 export function PageWithToolbar(props: Props) {
   return (
     <div className={classnames('Page', 'Page-WithToolbar', props.className)}>
       <Toolbar />
-      <div className="Page-ToolbarSpacer" />
-      {props.children}
+      <div className="Page-Content">
+        {props.leftPane && props.showLeftPane && (
+          <div className="Page-LeftPane">{props.leftPane}</div>
+        )}
+        <div className="Page-Canvas">{props.canvas}</div>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,5 @@
+import MainPage from './pages/MainPage';
 import React from 'react';
-import RouteNotFoundPage from './pages/RouteNotFoundPage';
-import WorkflowRunPage from './workflow-run/WorkflowRunPage';
 
 import classnames from 'classnames';
 import configureDB from './db/configure';
@@ -19,11 +18,8 @@ export default function App() {
     <div className={classnames('App', getThemeClassName(theme))}>
       <Router>
         <Switch>
-          <Route path={`/workflowRun/:workflowRunID`}>
-            <WorkflowRunPage />
-          </Route>
           <Route>
-            <RouteNotFoundPage />
+            <MainPage />
           </Route>
         </Switch>
       </Router>

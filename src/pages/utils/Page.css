@@ -1,8 +1,25 @@
 .Page {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
-.Page-ToolbarSpacer {
-  margin-top: 40px; /* height of toolbar */
+.Page-Content {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.Page-Canvas {
+  flex-grow: 1;
+}
+
+.Page-LeftPane {
+  box-shadow: 0.5px 0 0.5px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  transition: box-shadow 0.2s;
+}
+
+.Theme-Dark .Page-LeftPane {
+  box-shadow: 0.5px 0 0.5px rgba(255, 255, 255, 0.2);
 }
