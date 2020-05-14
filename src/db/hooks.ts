@@ -1,7 +1,16 @@
+import { Collection, Query } from '.';
 import { createQuery, listenQuery } from '.';
+import { Model, ModelModule } from '../models/types';
 import { useEffect, useMemo } from 'react';
 
-export function useCreateQuery(module: any, cb: Function) {
+export function useCreateQuery<
+  TType extends string,
+  TModel extends Model<TType>
+>(
+  module: ModelModule<TType, any, TModel>,
+  cb: (collection: Collection) => Query<TType, TModel>,
+) {
+  // @ts-ignore - TODO: Fix this
   return useMemo(() => createQuery(module, cb), [module]);
 }
 

@@ -18,7 +18,7 @@ export default function WorkerLogProgressBar(props: Props) {
 
   return (
     <div className={classnames('margin-top-4px', 'WorkerLogProgressBar-Root')}>
-      <Text displayStyle="Block" fontStyle="MonoPrimary">
+      <Text displayStyle="Block" fontStyle="MonoNormal">
         {`${name} - ${progressPercent}%`}
       </Text>
       <div

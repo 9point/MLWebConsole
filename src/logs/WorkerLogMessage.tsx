@@ -47,6 +47,6 @@ function getFontStyle(messageType: MessageType): FontStyle {
       return 'MonoLarge';
 
     case 'P':
-      return 'MonoPrimary';
+      return 'MonoNormal';
   }
 }

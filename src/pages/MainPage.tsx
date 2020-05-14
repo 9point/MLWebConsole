@@ -1,4 +1,5 @@
 import React from 'react';
+import RunPane from '../run-pane/RunPane';
 
 import { PageWithToolbar } from './utils/Page';
 
@@ -8,7 +9,7 @@ export interface Props {}
 
 export default function MainPage(props: Props) {
   const canvas = <>Hello Word</>;
-  const leftPane = <div />;
+  const leftPane = <RunPane />;
 
   return (
     <PageWithToolbar

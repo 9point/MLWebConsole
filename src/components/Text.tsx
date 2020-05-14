@@ -7,13 +7,14 @@ import './Text.css';
 export type DisplayStyle = 'Inline' | 'Block';
 
 export type FontStyle =
-  | 'Large'
   | 'MonoLarge'
-  | 'MonoPrimary'
+  | 'MonoNormal'
   | 'MonoSemibold'
   | 'MonoXLarge'
   | 'MonoXXLarge'
-  | 'Primary';
+  | 'PrimaryNormal'
+  | 'PrimaryLarge'
+  | 'SecondaryNormal';
 
 export interface Props {
   children?: React.ReactNode;
@@ -25,7 +26,7 @@ export interface Props {
 
 export default function Text(props: Props) {
   const displayStyle = props.displayStyle || 'Inline';
-  const fontStyle = props.fontStyle || 'Primary';
+  const fontStyle = props.fontStyle || 'PrimaryNormal';
   const forceLineHeight = props.forceLineHeight || false;
 
   return (

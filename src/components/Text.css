@@ -3,8 +3,18 @@
   transition: color 0.2s;
 }
 
+.Text-Root.Text-FontStyleSecondaryNormal,
+.Text-Root.Text-FontStyleSecondaryLarge {
+  color: #666;
+}
+
 .Theme-Dark .Text-Root {
   color: white;
+}
+
+.Theme-Dark .Text-Root.Text-FontStyleSecondaryNormal,
+.Theme-Dark .Text-Root.Text-FontStyleSecondaryLarge {
+  color: #aaa;
 }
 
 .Text-DisplayStyleBlock {
@@ -15,11 +25,20 @@
   display: inline;
 }
 
-.Text-FontStylePrimary {
+.Text-FontStylePrimaryNormal,
+.Text-FontStyleSecondaryNormal {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 16px;
+}
+
+.Text-FontStylePrimaryLarge,
+.Text-FontStyleSecondaryLarge {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
 }
 
 .Text-FontStyleMonoLarge {
@@ -29,7 +48,7 @@
   line-height: 24px;
 }
 
-.Text-FontStyleMonoPrimary {
+.Text-FontStyleMonoNormal {
   font-family: 'Source Code Pro', monospace;
   font-size: 14px;
   font-weight: 500;
@@ -63,11 +82,13 @@
  * line height.
  */
 
-.Text-ForceLineHeight.Text-FontStylePrimary {
+.Text-ForceLineHeight.Text-FontStylePrimaryNormal,
+.Text-ForceLineHeight.Text-FontStyleSecondaryNormal {
   min-height: 16px;
 }
 
-.Text-ForceLineHeight.Text-FontStyleMonoPrimary {
+.Text-ForceLineHeight.Text-FontStyleMonoPrimary,
+.Text-ForceLineHeight.Text-FontStyleMonoSecondary {
   min-height: 20px;
 }
 
