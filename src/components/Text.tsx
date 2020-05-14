@@ -14,6 +14,7 @@ export type FontStyle =
   | 'MonoXXLarge'
   | 'PrimaryNormal'
   | 'PrimaryLarge'
+  | 'SecondaryAside'
   | 'SecondaryNormal';
 
 export interface Props {

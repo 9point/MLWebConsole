@@ -26,6 +26,10 @@ code {
   margin-bottom: 16px;
 }
 
+.margin-right-8px {
+  margin-right: 8px;
+}
+
 .margin-horiz-16px {
   margin-left: 16px;
   margin-right: 16px;
@@ -64,4 +68,8 @@ code {
 
 .text-align-center {
   text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
 }

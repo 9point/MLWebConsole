@@ -16,6 +16,7 @@
     "assert": "^2.0.0",
     "classnames": "^2.2.6",
     "firebase": "^7.14.2",
+    "moment": "^2.25.3",
     "nullthrows": "^1.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

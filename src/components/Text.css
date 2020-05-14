@@ -4,7 +4,8 @@
 }
 
 .Text-Root.Text-FontStyleSecondaryNormal,
-.Text-Root.Text-FontStyleSecondaryLarge {
+.Text-Root.Text-FontStyleSecondaryLarge,
+.Text-Root.Text-FontStyleSecondaryAside {
   color: #666;
 }
 
@@ -13,7 +14,8 @@
 }
 
 .Theme-Dark .Text-Root.Text-FontStyleSecondaryNormal,
-.Theme-Dark .Text-Root.Text-FontStyleSecondaryLarge {
+.Theme-Dark .Text-Root.Text-FontStyleSecondaryLarge,
+.Theme-Dark .Text-Root.Text-FontStyleSecondaryAside {
   color: #aaa;
 }
 
@@ -23,6 +25,13 @@
 
 .Text-DisplayStyleInline {
   display: inline;
+}
+
+.Text-FontStyleSecondaryAside {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
 }
 
 .Text-FontStylePrimaryNormal,
@@ -82,6 +91,7 @@
  * line height.
  */
 
+.Text-ForcedLineHeight.Text-FontStyleSecondaryLarge,
 .Text-ForceLineHeight.Text-FontStylePrimaryNormal,
 .Text-ForceLineHeight.Text-FontStyleSecondaryNormal {
   min-height: 16px;
