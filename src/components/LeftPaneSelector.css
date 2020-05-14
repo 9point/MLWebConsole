@@ -1,0 +1,85 @@
+.LeftPaneSelector-Root {
+  box-shadow: 0 0.5px 0.5px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.Theme-Dark .LeftPaneSelector-Root {
+  box-shadow: 0 0.5px 0.5px rgba(255, 255, 255, 0.1);
+}
+
+.LeftPaneSelector-Selector {
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: box-shadow 0.1s;
+}
+
+.LeftPaneSelector-Selector:hover,
+.LeftPaneSelector-SelectorActive {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 1);
+}
+
+.Theme-Dark .LeftPaneSelector-Selector:hover,
+.Theme-Dark .LeftPaneSelector-SelectorActive {
+  box-shadow: 0 0 1px rgba(255, 255, 255, 1);
+}
+
+.LeftPaneSelector-SelectorContent {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+}
+
+.LeftPaneSelector-DropdownHandle {
+  border-bottom: none;
+  border-left: solid transparent 5px;
+  border-right: solid transparent 5px;
+  border-top: solid #666 6px;
+  height: 0;
+  transition: border-color 0.2s;
+  width: 0;
+}
+
+.Theme-Dark .LeftPaneSelector-DropdownHandle {
+  border-top: solid #aaa 6px;
+}
+
+.LeftPaneSelector-Dropdown {
+  background-color: #f0f0f0;
+  border-radius: 2px;
+  box-shadow: 0 0 0.5px rgba(0, 0, 0, 0.4), 2px 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  opacity: 1;
+  overflow: hidden;
+  position: absolute;
+  top: 32px;
+  transition: background-color 0.2s, opacity 0.1s;
+}
+
+.LeftPaneSelector-DropdownHidden {
+  display: none;
+  opacity: 0;
+}
+
+.Theme-Dark .LeftPaneSelector-Dropdown {
+  box-shadow: 0 0 0.5px rgba(0, 0, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #333;
+}
+
+.LeftPaneSelector-Dropdown-Item {
+  padding: 8px 16px;
+  transition: background-color 0.1s;
+}
+
+.LeftPaneSelector-Dropdown-Item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.Theme-Dark .LeftPaneSelector-Dropdown-Item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}

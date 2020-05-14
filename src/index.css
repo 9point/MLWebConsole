@@ -30,6 +30,10 @@ code {
   margin-right: 8px;
 }
 
+.margin-right-16px {
+  margin-right: 16px;
+}
+
 .margin-horiz-16px {
   margin-left: 16px;
   margin-right: 16px;
@@ -72,4 +76,12 @@ code {
 
 .text-align-right {
   text-align: right;
+}
+
+.role-dropdown {
+  z-index: 10;
+}
+
+.role-modal {
+  z-index: 20;
 }
