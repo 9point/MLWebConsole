@@ -29,8 +29,12 @@ export default function RunListItem(props: Props) {
           [`RunListItem-StatusIndicator-${run.status}`]: true,
         })}
       />
-      <Text className="RunListItem-Name" fontStyle="PrimaryNormal">{routineID.routineName}</Text>
-      <Text className="text-align-right" fontStyle="SecondaryAside">{'10 min ago'}</Text>
+      <Text className="RunListItem-Name" fontStyle="PrimaryNormal">
+        {routineID.routineName}
+      </Text>
+      <Text className="text-align-right" fontStyle="SecondaryAside">
+        {moment(run.createdAt).fromNow()}
+      </Text>
     </div>
   );
 }
