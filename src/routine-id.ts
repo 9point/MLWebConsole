@@ -1,3 +1,5 @@
+import assert from 'assert';
+
 import { Model as Project } from './models/Project';
 import { Model as Task } from './models/Task';
 import { Model as Workflow } from './models/Workflow';
@@ -88,7 +90,7 @@ export function parse(str: string): RoutineID {
     }
   }
 
-  throw new Error('Assertion error');
+  assert(false);
 }
 
 export function createNameBasedID(
@@ -156,7 +158,7 @@ export function parseFull(str: string): FullRoutineID {
     }
   }
 
-  throw new Error('Assertion error');
+  assert(false);
 }
 
 export function matches(rid1: RoutineID, rid2: RoutineID): boolean {
@@ -167,18 +169,13 @@ export function matches(rid1: RoutineID, rid2: RoutineID): boolean {
   switch (rid1.type) {
     case 'tdb':
     case 'wfdb': {
-      if (rid2.type !== rid1.type) {
-        throw new Error('Assertion error');
-      }
-
+      assert(rid2.type === rid1.type);
       return rid1.dbID === rid2.dbID;
     }
 
     case 'tname':
     case 'wfname': {
-      if (rid2.type !== rid1.type) {
-        throw new Error('Assertion Error');
-      }
+      assert(rid2.type === rid1.type);
 
       if (
         rid1.projectName &&
@@ -249,7 +246,7 @@ export function fromRoutine(
     switch (routine.modelType) {
       case 'Task': {
         const type = 'tname';
-        const version = routine.modelType;
+        const version = routine.version;
         return { projectName, routineName, type, version };
       }
 
