@@ -1,36 +1,55 @@
 import LeftPaneSelector, {
   LeftPaneSelectorOption,
 } from '../components/LeftPaneSelector';
-import React from 'react';
+import React, { useState } from 'react';
 import RunCanvas from '../runs/RunCanvas';
 import RunPane from '../runs/RunPane';
 
 import { PageWithToolbar } from './utils/Page';
+import { useHistory } from 'react-router-dom';
 
 import './MainPage.css';
 
-export interface Props {}
+const LEFT_PANE_OPTIONS: Array<LeftPaneSelectorOption<LeftPaneMode>> = [
+  { mode: 'RUNS', name: 'Runs' },
+  { mode: 'WORKERS', name: 'Workers' },
+];
+
+const LeftPaneModeToPath = {
+  RUNS: '/runs',
+  WORKERS: '/workers',
+};
+
+export type LeftPaneMode = keyof typeof LeftPaneModeToPath;
+
+export interface LeftPaneState {
+  mode: LeftPaneMode;
+}
+
+export interface Props {
+  leftPaneState: LeftPaneState;
+}
 
 export default function MainPage(props: Props) {
-  const canvas = <RunCanvas />;
+  const [leftPaneMode, setLeftPaneMode] = useState(props.leftPaneState.mode);
+  const history = useHistory();
 
-  function onSelectLeftPane(option: LeftPaneSelectorOption) {
-    console.log('selected', option);
+  const canvas = <CanvasContent mode={props.leftPaneState.mode} />;
+
+  function onSelectLeftPane(option: LeftPaneSelectorOption<LeftPaneMode>) {
+    const mode = option.mode;
+    history.push(LeftPaneModeToPath[mode]);
+    setLeftPaneMode(mode);
   }
-
-  const leftPaneOptions = [
-    { id: 'RUNS', name: 'Runs' },
-    { id: 'WORKERS', name: 'Workers' },
-  ];
 
   const leftPane = (
     <div className="MainPage-LeftPaneContainer">
       <LeftPaneSelector
         onSelect={onSelectLeftPane}
-        options={leftPaneOptions}
-        selectedID="RUNS"
+        options={LEFT_PANE_OPTIONS}
+        selectedID={leftPaneMode}
       />
-      <RunPane />
+      <LeftPaneContent mode={props.leftPaneState.mode} />
     </div>
   );
 
@@ -42,4 +61,24 @@ export default function MainPage(props: Props) {
       showLeftPane={true}
     />
   );
+}
+
+function CanvasContent(props: { mode: LeftPaneMode }) {
+  switch (props.mode) {
+    case 'RUNS':
+      return <RunCanvas />;
+
+    case 'WORKERS':
+      return <div />;
+  }
+}
+
+function LeftPaneContent(props: { mode: LeftPaneMode }) {
+  switch (props.mode) {
+    case 'RUNS':
+      return <RunPane />;
+
+    case 'WORKERS':
+      return <div />;
+  }
 }

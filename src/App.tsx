@@ -18,8 +18,11 @@ export default function App() {
     <div className={classnames('App', getThemeClassName(theme))}>
       <Router>
         <Switch>
+          <Route path="/workers">
+            <MainPage leftPaneState={{ mode: 'WORKERS' }} />
+          </Route>
           <Route>
-            <MainPage />
+            <MainPage leftPaneState={{ mode: 'RUNS' }} />
           </Route>
         </Switch>
       </Router>

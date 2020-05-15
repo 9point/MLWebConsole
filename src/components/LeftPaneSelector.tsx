@@ -5,18 +5,20 @@ import classnames from 'classnames';
 
 import './LeftPaneSelector.css';
 
-export interface LeftPaneSelectorOption {
-  id: string;
+export interface LeftPaneSelectorOption<TMode extends string> {
+  mode: TMode;
   name: string;
 }
 
-export interface Props {
-  onSelect: (option: LeftPaneSelectorOption) => void;
-  options: LeftPaneSelectorOption[];
+export interface Props<TMode extends string> {
+  onSelect: (option: LeftPaneSelectorOption<TMode>) => void;
+  options: LeftPaneSelectorOption<TMode>[];
   selectedID: string;
 }
 
-export default function LeftPaneSelector(props: Props) {
+export default function LeftPaneSelector<TMode extends string>(
+  props: Props<TMode>,
+) {
   const [isActive, setIsActive] = useState(false);
 
   // Register click event for deactivating.
@@ -38,7 +40,7 @@ export default function LeftPaneSelector(props: Props) {
     setIsActive((wasActive) => !wasActive);
   }
 
-  const selectedOption = props.options.find((o) => o.id === props.selectedID);
+  const selectedOption = props.options.find((o) => o.mode === props.selectedID);
   if (!selectedOption) {
     throw Error(`No option found with selectedID: ${props.selectedID}`);
   }
@@ -76,7 +78,7 @@ export default function LeftPaneSelector(props: Props) {
           {props.options.map((option) => (
             <div
               className="LeftPaneSelector-Dropdown-Item"
-              key={option.id}
+              key={option.mode}
               onClick={() => props.onSelect(option)}
               role="button"
             >

@@ -91,6 +91,7 @@ export function parse(str: string): RoutineID {
   }
 
   assert(false);
+  throw Error();
 }
 
 export function createNameBasedID(
@@ -159,6 +160,7 @@ export function parseFull(str: string): FullRoutineID {
   }
 
   assert(false);
+  throw Error();
 }
 
 export function matches(rid1: RoutineID, rid2: RoutineID): boolean {
@@ -170,12 +172,19 @@ export function matches(rid1: RoutineID, rid2: RoutineID): boolean {
     case 'tdb':
     case 'wfdb': {
       assert(rid2.type === rid1.type);
+      if (rid2.type !== rid1.type) {
+        throw Error();
+      }
+
       return rid1.dbID === rid2.dbID;
     }
 
     case 'tname':
     case 'wfname': {
       assert(rid2.type === rid1.type);
+      if (rid2.type !== rid1.type) {
+        throw Error();
+      }
 
       if (
         rid1.projectName &&
