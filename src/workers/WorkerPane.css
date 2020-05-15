@@ -1,0 +1,4 @@
+.WorkerPane-Root {
+  display: flex;
+  flex-direction: column;
+}

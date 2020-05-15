@@ -4,6 +4,8 @@ import LeftPaneSelector, {
 import React, { useState } from 'react';
 import RunCanvas from '../runs/RunCanvas';
 import RunPane from '../runs/RunPane';
+import WorkerCanvas from '../workers/WorkerCanvas';
+import WorkerPane from '../workers/WorkerPane';
 
 import { PageWithToolbar } from './utils/Page';
 import { useHistory } from 'react-router-dom';
@@ -69,7 +71,7 @@ function CanvasContent(props: { mode: LeftPaneMode }) {
       return <RunCanvas />;
 
     case 'WORKERS':
-      return <div />;
+      return <WorkerCanvas />;
   }
 }
 
@@ -79,6 +81,6 @@ function LeftPaneContent(props: { mode: LeftPaneMode }) {
       return <RunPane />;
 
     case 'WORKERS':
-      return <div />;
+      return <WorkerPane />;
   }
 }
