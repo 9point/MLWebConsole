@@ -1,2 +1,8 @@
 .MainPage-Root {
 }
+
+.MainPage-LeftPaneContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

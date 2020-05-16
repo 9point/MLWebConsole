@@ -1,0 +1,15 @@
+.RunLog-Root {
+  padding: 8px 16px;
+}
+
+.RunLog-DateText {
+  color: #666 !important; /* secondary text color */
+}
+
+.Theme-Dark .RunLog-DateText {
+  color: #aaa !important; /* secondary text color */
+}
+
+.RunLog-DomainText {
+  color: #16a085 !important;
+}

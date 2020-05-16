@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from '../components/Spinner';
 import Text from '../components/Text';
 
 import classnames from 'classnames';
@@ -20,15 +21,20 @@ export default function RunListItem(props: Props) {
     throw new Error('Expecting named routine id');
   }
 
+  const isRunning = ['INITIALIZING', 'RUNNING'].includes(run.status);
+
   return (
     <div className="RunListItem-Root">
-      <div
-        className={classnames({
-          'RunListItem-StatusIndicator': true,
-          'margin-right-8px': true,
-          [`RunListItem-StatusIndicator-${run.status}`]: true,
-        })}
-      />
+      {!isRunning && (
+        <div
+          className={classnames({
+            'RunListItem-StatusIndicator': true,
+            'margin-right-8px': true,
+            [`RunListItem-StatusIndicator-${run.status}`]: true,
+          })}
+        />
+      )}
+      {isRunning && <Spinner />}
       <Text className="RunListItem-Name" fontStyle="PrimaryNormal">
         {routineID.routineName}
       </Text>

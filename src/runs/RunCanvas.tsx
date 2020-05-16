@@ -1,4 +1,5 @@
 import React from 'react';
+import RunLog from '../logs/RunLog';
 import Text from '../components/Text';
 
 import './RunCanvas.css';
@@ -12,6 +13,11 @@ export default function RunCanvas(props: Props) {
         <Text displayStyle="Block" fontStyle="PrimaryNormal">
           {'simple_example.build'}
         </Text>
+      </div>
+      <div className="RunCanvas-Content">
+        <RunLog />
+        <RunLog />
+        <RunLog />
       </div>
     </div>
   );

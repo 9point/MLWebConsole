@@ -14,11 +14,6 @@ export default function RunPane(props: Props) {
 
   return (
     <div className="RunPane-Root">
-      <div className="RunPane-Header">
-        <Text displayStyle="Block" fontStyle="SecondaryNormal">
-          {'Runs'}
-        </Text>
-      </div>
       <div className="RunPane-List">
         {runs.map((run) => (
           <RunListItem run={run} />

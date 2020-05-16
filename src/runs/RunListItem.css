@@ -33,3 +33,8 @@
 .RunListItem-StatusIndicator.RunListItem-StatusIndicator-DONE {
   background-color: #2ecc71;
 }
+
+.RunListItem-StatusIndicator.RunListItem-StatusIndicator-FAILED,
+.RunListItem-StatusIndicator.RunListItem-StatusIndicator-UNKNOWN {
+  background-color: #e74c3c;
+}

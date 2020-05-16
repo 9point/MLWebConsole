@@ -70,6 +70,14 @@ code {
   padding-bottom: 8px;
 }
 
+.padding-right-4px {
+  padding-right: 4px;
+}
+
+.padding-right-8px {
+  padding-right: 8px;
+}
+
 .text-align-center {
   text-align: center;
 }
