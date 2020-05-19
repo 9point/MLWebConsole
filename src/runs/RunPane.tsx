@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
 import RunListItem from './RunListItem';
 
-import { useSelector } from 'react-redux';
-import { State } from '../store';
+import { Dispatch, State } from '../store';
+import { setCanvasMode } from '../store/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './RunPane.css';
 
@@ -22,11 +23,24 @@ export default function RunPane(props: Props) {
     );
   }, [runs, tree]);
 
+  const dispatch = useDispatch<Dispatch>();
+
   return (
     <div className="RunPane-Root">
       <div className="RunPane-List">
         {parentRuns.map((run) => (
-          <RunListItem key={run.id} run={run} />
+          <RunListItem
+            key={run.id}
+            onClick={() =>
+              dispatch(
+                setCanvasMode({
+                  routineRunID: run.id,
+                  type: 'DISPLAY_ROUTINE_RUN',
+                }),
+              )
+            }
+            run={run}
+          />
         ))}
       </div>
     </div>

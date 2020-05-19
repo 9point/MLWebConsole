@@ -11,6 +11,7 @@ import { parseFull as parseFullRoutineID } from '../routine-id';
 import './RunListItem.css';
 
 export interface Props {
+  onClick: () => void;
   run: RoutineRun;
 }
 
@@ -24,7 +25,7 @@ export default function RunListItem(props: Props) {
   const isRunning = ['INITIALIZING', 'RUNNING'].includes(run.status);
 
   return (
-    <div className="RunListItem-Root">
+    <div className="RunListItem-Root" onClick={props.onClick}>
       {!isRunning && (
         <div
           className={classnames({

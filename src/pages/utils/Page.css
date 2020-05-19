@@ -16,8 +16,9 @@
 
 .Page-LeftPane {
   box-shadow: 0.5px 0 0.5px rgba(0, 0, 0, 0.2);
-  width: 350px;
+  flex-shrink: 0;
   transition: box-shadow 0.2s;
+  width: 350px;
 }
 
 .Theme-Dark .Page-LeftPane {
