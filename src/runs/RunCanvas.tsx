@@ -15,9 +15,21 @@ export default function RunCanvas(props: Props) {
         </Text>
       </div>
       <div className="RunCanvas-Content">
-        <RunLog />
-        <RunLog />
-        <RunLog />
+        <RunLog
+          date={new Date()}
+          domain="simple_example.build"
+          message="Hello World"
+        />
+        <RunLog
+          date={new Date()}
+          domain="simple_example.build"
+          message="This is another message"
+        />
+        <RunLog
+          date={new Date()}
+          domain="simple_example.build"
+          message="This is a third message"
+        />
       </div>
     </div>
   );

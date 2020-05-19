@@ -1,5 +1,5 @@
 import MainPage from './pages/MainPage';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Store from './store';
 
 import classnames from 'classnames';
@@ -8,6 +8,7 @@ import useTheme, { getThemeClassName } from './useTheme';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { start as startDBListener } from './db/listeners';
 
 import './App.css';
 
@@ -15,6 +16,8 @@ configureDB();
 
 export default function App() {
   const theme = useTheme()[0];
+
+  useEffect(() => startDBListener().stop, []);
 
   return (
     <Provider store={Store}>

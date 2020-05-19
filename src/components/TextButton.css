@@ -1,0 +1,8 @@
+.TextButton-Root {
+  cursor: pointer;
+  display: inline;
+}
+
+.TextButton-Root:hover .Text-Root {
+  text-decoration: underline;
+}
